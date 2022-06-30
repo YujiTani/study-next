@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <HeadLine />
-      <Header title={'index'} />
+      <Header title={'about'} />
       <Main />
       <Footer />
     </div>
