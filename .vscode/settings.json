@@ -2,5 +2,7 @@
     "prettier.jsxSingleQuote": true,
     "prettier.singleQuote": true,
     "csscomb.formatOnSave": true,
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "javascript.preferences.importModuleSpecifier": "non-relative",
+
 }

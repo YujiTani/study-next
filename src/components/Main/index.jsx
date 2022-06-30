@@ -1,4 +1,4 @@
-import Links from '../Links';
+import Links from '@/components/Links';
 import classes from './Main.module.css';
 
 export default function Main() {
