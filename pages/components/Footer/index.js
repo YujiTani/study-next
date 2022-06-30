@@ -1,1 +1,1 @@
-import { footer } from "./Footer"
+export { footer } from "./Footer"
