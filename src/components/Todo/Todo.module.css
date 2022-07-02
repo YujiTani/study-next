@@ -1,0 +1,67 @@
+.inputContainer {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.inputLabel {
+  font-size: 12px;
+  color: rgb(116 99 99);
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.input {
+  padding: 4px;
+  height: 20px;
+  border-radius: 6px;
+  border: 2px solid #9c9c9c;
+  cursor: pointer;
+}
+
+.errorMessage {
+  font-size: 11px;
+  color: red;
+  font-weight: bold;
+}
+
+.todoWrapper {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.link {
+  margin-bottom: 8px;
+  padding: 6px 10px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f4f2f2;
+  border-radius: 6px;
+}
+
+.text {
+  font-weight: 16px;
+}
+
+.deleteButton {
+  padding: 6px;
+  width: 46px;
+  border: unset;
+  border-radius: 5px;
+  background-color: #929292;
+  color: #fff;
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  opacity: 0.6;
+}
+
+.noneMessage {
+  text-align: center;
+}

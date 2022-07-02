@@ -12,6 +12,9 @@ export default function Header(props) {
         <Link href='/about'>
           <a className={classes.linkButton}>About</a>
         </Link>
+        <Link href='/todo'>
+          <a className={classes.linkButton}>Todo</a>
+        </Link>
       </div>
     </header>
   );
