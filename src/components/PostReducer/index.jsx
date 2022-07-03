@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useReducer } from 'react';
 import classes from './Post.module.css';
 
-export default function Post() {
+export default function PostReducer() {
   const initialArg = {
     posts: [],
     fetching: true,

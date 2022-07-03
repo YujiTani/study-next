@@ -10,7 +10,8 @@ function MyApp({ Component, pageProps }) {
     { path: '/', name: 'トップページ' },
     { path: '/about', name: 'サブページ' },
     { path: '/todo', name: 'ToDo' },
-    { path: '/post', name: 'データ取得テスト' },
+    { path: '/postreducer', name: 'データ取得' },
+    { path: '/swr', name: '外部パッケージを使用したデータ取得' },
   ];
 
   useEffect(() => {
