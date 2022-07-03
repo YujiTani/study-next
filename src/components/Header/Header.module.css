@@ -20,14 +20,16 @@
 
 .linkWrapper {
   margin-top: 30px;
+  gap: 15px;
   width: 600px;
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .linkButton {
   padding: 8px;
-  width: 120px;
+  width: 100px;
   display: flex;
   justify-content: center;
   align-items: center;

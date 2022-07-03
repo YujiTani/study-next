@@ -15,6 +15,21 @@ export default function Header(props) {
         <Link href='/todo'>
           <a className={classes.linkButton}>Todo</a>
         </Link>
+        <Link href='/post'>
+          <a className={classes.linkButton}>Post</a>
+        </Link>
+        <Link href='/post'>
+          <a className={classes.linkButton}>Post</a>
+        </Link>
+        <Link href='/post'>
+          <a className={classes.linkButton}>Post</a>
+        </Link>
+        <Link href='/post'>
+          <a className={classes.linkButton}>Post</a>
+        </Link>
+        <Link href='/post'>
+          <a className={classes.linkButton}>Post</a>
+        </Link>
       </div>
     </header>
   );
