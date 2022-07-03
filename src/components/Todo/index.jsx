@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react';
 import classes from './Todo.module.css';
+import { Search } from 'tabler-icons-react';
 
 export default function Todo() {
   const [text, setText] = useState('');
@@ -8,12 +9,9 @@ export default function Todo() {
   const [todoList, setTodoList] = useState([]);
   const [seachedTodoList, setSeachedTodoList] = useState([]);
 
-  const changeText = useCallback(
-    (e) => {
-      setText(e.target.value);
-    },
-    [text]
-  );
+  const changeText = useCallback((e) => {
+    setText(e.target.value);
+  }, []);
 
   const clickEnter = useCallback(
     (e) => {
@@ -101,13 +99,16 @@ export default function Todo() {
         />
         <p className='errorMessage'>{error}</p>
       </label>
-      <input
-        className={classes.input}
-        type='text'
-        placeholder='タスクを検索'
-        value={seachWord}
-        onChange={changeSeachWord}
-      />
+      <label className={classes.searchWrapper}>
+        <input
+          className={classes.input}
+          type='text'
+          placeholder='タスクを検索'
+          value={seachWord}
+          onChange={changeSeachWord}
+        />
+        <Search className={classes.search} strokeWidth={2} color={'#d27979'} />
+      </label>
 
       <ul className={classes.todoWrapper}>
         {todoList.length > 0 ? (
