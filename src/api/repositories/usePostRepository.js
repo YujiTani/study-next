@@ -1,14 +1,13 @@
 import useSWR from 'swr';
 import { fetcher } from '@/api/fetcher';
 
-export const usePostRepository = () => {
-  const url = 'https://jsonplaceholder.typicode.com/posts';
-  const { data, error } = useSWR(url, fetcher(url));
+export const usePostRepository = (url) => {
+  const { data, error } = useSWR(url, fetcher);
 
   return {
     posts: data,
-    isLoading: !error && !data,
+    isLoading: data === undefined && !error?.status,
     isError: error,
-    isEmpty: data & (data?.length === 0),
+    isEmpty: data && data?.length === 0,
   };
 };
