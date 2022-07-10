@@ -21,7 +21,10 @@ function MyApp({ Component, pageProps }) {
       }
     });
 
-    setPageTitle(newPageList[0].name);
+    if (newPageList[0]?.name === undefined) {
+      setPageTitle("");  
+    }
+    setPageTitle(newPageList[0]?.name);
   }, [router]);
 
   return (

@@ -1,8 +1,9 @@
 import classes from './Swr.module.css';
 import repository from '@/api';
+import Link from 'next/link';
 
 export default function Swr() {
-  const { posts, isLoading, isError, isEmpty } = repository.posts();
+  const { posts, isLoading, isError, isEmpty } = repository.posts("https://jsonplaceholder.typicode.com/posts");
 
   if (isLoading) {
     return <h2 style={{ textAlign: 'center' }}>データ取得中...</h2>;
@@ -20,10 +21,14 @@ export default function Swr() {
     <ul>
       {posts.map((post) => {
         return (
-          <ol key={post.id} className={classes.postWrapper}>
+          <Link key={post.id} href={`/swr/${post.id}`}>
+          <a>
+          <ol className={classes.postWrapper}>
             <p>{post.title}</p>
             <p>{post.body}</p>
           </ol>
+          </a>
+          </Link>
         );
       })}
     </ul>
