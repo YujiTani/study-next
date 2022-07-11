@@ -1,6 +1,7 @@
 import '@/styles/globals.css';
 import { useRouter } from 'next/router';
 import { useEffect, useMemo, useState } from 'react';
+import useSWR, { SWRConfig } from 'swr';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -22,15 +23,32 @@ function MyApp({ Component, pageProps }) {
     });
 
     if (newPageList[0]?.name === undefined) {
-      setPageTitle("");  
+      setPageTitle('');
     }
     setPageTitle(newPageList[0]?.name);
   }, [router]);
 
+  const fetcher = async (url) => {
+    const res = await fetch(url);
+
+    // もしステータスコードが 200-299 の範囲内では無い場合、
+    // レスポンスをパースして投げようとします。
+    if (!res.ok) {
+      const error = new Error('データが取得できませんでした。');
+      // エラーオブジェクトに追加情報を付与します。
+      error.status = res.status;
+      throw error;
+    }
+
+    return res.json();
+  };
+
   return (
     <>
-      <h1 style={{ textAlign: 'center' }}>{pageTitle}</h1>
-      <Component {...pageProps} />;
+      <SWRConfig value={{ fetcher }}>
+        <h1 style={{ textAlign: 'center' }}>{pageTitle}</h1>
+        <Component {...pageProps} />;
+      </SWRConfig>
     </>
   );
 }

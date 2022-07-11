@@ -1,8 +1,7 @@
 import useSWR from 'swr';
-import { fetcher } from '@/api/fetcher';
 
 export const usePostRepository = (url) => {
-  const { data, error } = useSWR(url, fetcher);
+  const { data, error } = useSWR(url);
 
   return {
     posts: data,
