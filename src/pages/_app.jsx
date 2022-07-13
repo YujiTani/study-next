@@ -13,6 +13,7 @@ function MyApp({ Component, pageProps }) {
     { path: '/todo', name: 'ToDo' },
     { path: '/postreducer', name: 'データ取得' },
     { path: '/swr', name: '外部パッケージを使用したデータ取得' },
+    { path: '/ssr', name: 'サーバーサイドレンダリングを使用' },
   ];
 
   useEffect(() => {

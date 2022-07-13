@@ -1,6 +1,6 @@
 import useSWR from 'swr';
 
-export const usePostRepository = (url) => {
+export const useUserRepository = (url) => {
   const { data, error } = useSWR(url);
 
   return {

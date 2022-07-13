@@ -1,14 +1,14 @@
-import classes from './Swr.module.css';
+import classes from './Ssr.module.css';
 import repository from '@/api';
 import Link from 'next/link';
 
-export default function Swr() {
+export default function Ssr() {
   const {
-    data: posts,
+    data: users,
     isLoading,
     isError,
     isEmpty,
-  } = repository.posts('https://jsonplaceholder.typicode.com/posts');
+  } = repository.users('https://jsonplaceholder.typicode.com/users');
 
   if (isLoading) {
     return <h2 style={{ textAlign: 'center' }}>データ取得中...</h2>;
@@ -24,13 +24,13 @@ export default function Swr() {
 
   return (
     <ul>
-      {posts.map((post) => {
+      {users.map((user) => {
         return (
-          <Link key={post.id} href={`/swr/${post.id}`}>
+          <Link key={user.id} href={`/ssr/${user.id}`}>
             <a>
               <ol className={classes.postWrapper}>
-                <p>{post.title}</p>
-                <p>{post.body}</p>
+                <h2>{user.name}</h2>
+                <p>{user.email}</p>
               </ol>
             </a>
           </Link>

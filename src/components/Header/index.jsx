@@ -20,8 +20,8 @@ export default function Header(props) {
         <Link href='/swr'>
           <a className={classes.linkButton}>SWR</a>
         </Link>
-        <Link href='/post'>
-          <a className={classes.linkButton}>Post</a>
+        <Link href='/ssr'>
+          <a className={classes.linkButton}>SSR</a>
         </Link>
         <Link href='/post'>
           <a className={classes.linkButton}>Post</a>
