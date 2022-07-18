@@ -1,36 +1,33 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import HeadLine from '@/components/HeadLine';
-import useSWR, { SWRConfig } from 'swr';
+import { User as UserComponent } from '@/components/User';
+import { SWRConfig } from 'swr';
 
-export const getServerSideProps = async (ctx) => {
-  const { id } = ctx.query;
+export async function getServerSideProps(context) {
+  const { id } = await context.query;
   const API_URL = `https://jsonplaceholder.typicode.com/users/${id}`;
-  const user = await fetch(API_URL);
-  const userJson = await user.json();
+  const res = await fetch(API_URL);
+  const data = await res.json();
 
   return {
     props: {
-      fallBack: {
-        [API_URL]: userJson,
+      fallback: {
+        [API_URL]: data,
       },
     },
   };
-};
+}
 
-const UserIdSsr = (props) => {
-  const { fallBack } = props;
+const UsersId = ({ fallback }) => {
   return (
-    <>
+    <SWRConfig value={{ fallback }}>
       <HeadLine />
       <Header title={'index'} />
-      <SWRConfig value={{ fallBack }}>
-        <div style={{ textAlign: 'center' }}>
-          <h1>{router.query.id}</h1>
-          <p>リンクページ</p>
-        </div>
-      </SWRConfig>
+      <UserComponent />
       <Footer />
-    </>
+    </SWRConfig>
   );
 };
+
+export default UsersId;

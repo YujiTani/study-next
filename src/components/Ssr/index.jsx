@@ -1,14 +1,11 @@
 import classes from './Ssr.module.css';
-import repository from '@/api';
 import Link from 'next/link';
+import repository from '@/api';
 
-export default function Ssr() {
-  const {
-    data: users,
-    isLoading,
-    isError,
-    isEmpty,
-  } = repository.users('https://jsonplaceholder.typicode.com/users');
+const Ssr = () => {
+  const { data, isLoading, isError, isEmpty } = repository.users(
+    'https://jsonplaceholder.typicode.com/users'
+  );
 
   if (isLoading) {
     return <h2 style={{ textAlign: 'center' }}>データ取得中...</h2>;
@@ -24,9 +21,9 @@ export default function Ssr() {
 
   return (
     <ul>
-      {users.map((user) => {
+      {data?.map((user) => {
         return (
-          <Link key={user.id} href={`/ssr/${user.id}`}>
+          <Link rel='preload' key={user.id} href={`/ssr/${user.id}`}>
             <a>
               <ol className={classes.postWrapper}>
                 <h2>{user.name}</h2>
@@ -38,4 +35,6 @@ export default function Ssr() {
       })}
     </ul>
   );
-}
+};
+
+export default Ssr;
